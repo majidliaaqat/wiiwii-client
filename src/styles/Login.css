@@ -1,0 +1,83 @@
+.login-app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "League Spartan", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.login-app-container .main-content {
+  width: 35%;
+  border: 1px solid #ccc;
+  margin: 4% 30%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(
+    343px at 46.3% 47.5%,
+    rgb(242, 242, 242) 0%,
+    rgb(241, 241, 241) 72.9%
+  );
+  border-radius: 10px;
+}
+
+.login-app-container .login-form h2 {
+  color: black;
+  background-color: #dc2f2f;
+  padding: 30px 30px;
+  margin: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.login-app-container .login-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-app-container .login-form .input {
+  margin: 10px 0;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.login-app-container button {
+  padding: 15px 20px;
+  background-color: #dc2f2f;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bolder;
+  font-size: 18px;
+  width: 35%;
+  font-size: 30px;
+}
+
+.login-app-container button[type="submit"]:hover {
+  background-color: #dc2f2f;
+}
+
+@media only screen and (max-width: 786px) {
+  .login-app-container .main-content {
+    width: 55%;
+    margin: 0;
+    margin-left: 30%;
+    border: none;
+  }
+
+  .login-app-container .login-form h2 {
+    font-size: 20px;
+  }
+
+  .login-app-container .login-form label {
+    font-size: 18px;
+  }
+}
