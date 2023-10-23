@@ -12,9 +12,9 @@ function App() {
   const [user, setUser] = useState("");
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
+       <Router>
+        <Routes> 
+       <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/login"
@@ -26,9 +26,9 @@ function App() {
             }
           />
           <Route path="/post" element={<CreatePost />} />
-          <Route path="/profile:username" element={<Profile />} />
-        </Routes>
-      </Router>
+          <Route path="/profile:username" element={<Profile />} /> 
+       </Routes>
+      </Router> 
     </div>
   );
 }
