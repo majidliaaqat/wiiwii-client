@@ -7,6 +7,7 @@ import Post from "../Pages/Post";
 function Home({ user }) {
   const [posts, setPosts] = useState("");
   const [post, setPost] = useState("");
+
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("http://localhost:4000/post/fetchPost");
@@ -15,28 +16,36 @@ function Home({ user }) {
     };
     fetchPosts();
   }, []);
+
   const handleBack = () => {
     setPost("");
   };
+
   const handleClick = (post) => {
     console.log(post);
     setPost(post);
   };
+
   return (
     <>
       {post !== "" ? (
         <>
-          <div>Home</div>
-          <Link to="/post">Create Post</Link>
-          <button onClick={handleBack}>Back</button>
+          <Link to="/post" className="create-post-link">
+            Create Post
+          </Link>
+          <button onClick={handleBack} className="back-button">
+            Back
+          </button>
+
           <Post post={post} user={user} />
         </>
       ) : (
         <div className="Home">
-          <div>Home</div>
-          <Link to="/post">Create Post</Link>
+          <Link to="/post" className="create-post-link">
+            Create Post
+          </Link>
           {posts ? (
-            <div>
+            <div className="PostsContainer">
               {posts
                 .slice()
                 .reverse()
