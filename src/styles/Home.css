@@ -1,0 +1,42 @@
+.Post {
+  border: 1px solid #ddd;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.PostHeader {
+  display: flex;
+  align-items: center;
+}
+
+.PostHeader img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.PostHeader h3 {
+  font-size: 18px;
+}
+
+.PostHeader p {
+  font-size: 12px;
+  color: #777;
+}
+
+.PostDescription {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.PostImage {
+  width: 30%;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}

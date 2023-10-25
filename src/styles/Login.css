@@ -38,13 +38,21 @@
   align-items: center;
 }
 
-.login-app-container .login-form .input {
+.login-app-container .login-form .input,
+.login-app-container .login-form .input-field {
   margin: 10px 0;
   padding: 15px;
   border: 2px solid #ccc;
   border-radius: 5px;
   width: 100%;
   font-size: 16px;
+}
+
+.login-app-container .login-form .forgot-password {
+  display: block;
+  text-align: right;
+  margin: 10px 0 20px;
+  font-size: 26px;
 }
 
 .login-app-container button {
@@ -58,11 +66,10 @@
   font-weight: bolder;
   font-size: 18px;
   width: 35%;
-  font-size: 30px;
 }
 
 .login-app-container button[type="submit"]:hover {
-  background-color: #dc2f2f;
+  background-color: #c12727;
 }
 
 @media only screen and (max-width: 786px) {
