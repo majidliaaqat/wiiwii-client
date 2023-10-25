@@ -39,13 +39,13 @@ function Profile({ user }) {
         });
       } else if (res.status === 221) {
         toast.error("Invalid Old Password!", {
-          position: "top-right", // Set the toast position
+          position: "top-right",
           autoClose: false,
           progress: false,
         });
       } else {
         toast.error("Internal Server Error!", {
-          position: "top-right", // Set the toast position
+          position: "top-right",
           autoClose: false,
           progress: false,
         });
@@ -53,7 +53,7 @@ function Profile({ user }) {
     } catch (error) {
       console.log("Error: ", error);
       toast.error("Internal Server Error!", {
-        position: "top-right", // Set the toast position
+        position: "top-right",
         autoClose: false,
         progress: false,
       });

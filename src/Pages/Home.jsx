@@ -4,7 +4,7 @@ import axios from "axios";
 import "../styles/Home.css";
 import Post from "../Pages/Post";
 
-function Home({ username }) {
+function Home({ user }) {
   const [posts, setPosts] = useState("");
   const [post, setPost] = useState("");
   useEffect(() => {
@@ -29,7 +29,7 @@ function Home({ username }) {
           <div>Home</div>
           <Link to="/post">Create Post</Link>
           <button onClick={handleBack}>Back</button>
-          <Post post={post} username={username} />
+          <Post post={post} user={user} />
         </>
       ) : (
         <div className="Home">

@@ -17,7 +17,7 @@ import Post from "./Pages/Post";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   console.log("Authentication: ", isAuthenticated);
   return (
     <div className="App">
@@ -27,10 +27,7 @@ function App() {
       ></Header>
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={<Home username={user.firstname + " " + user.lastname} />}
-          />
+          <Route path="/" element={<Home user={user} />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/login"
@@ -45,7 +42,7 @@ function App() {
             path="/post"
             element={
               isAuthenticated ? (
-                <CreatePost userID={user._id} />
+                <CreatePost userId={user._id} />
               ) : (
                 <Navigate to="/login" />
               )

@@ -12,15 +12,16 @@ function Login({ setIsAuthenticated, setUser }) {
   });
   const navigate = useNavigate();
 
-  //Email Validation
-
+  // Email Validation
   function VerifyEmail(_email) {
     const emailRegex = /^\S+@\S+\.\S+$/;
     return emailRegex.test(_email);
   }
+
   // Form Submit Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (formData.username === "" || formData.password === "") {
       toast.error("Please fill out both fields before submitting!", {
         position: "top-right",
@@ -29,6 +30,7 @@ function Login({ setIsAuthenticated, setUser }) {
       });
       return;
     }
+
     let data;
     if (VerifyEmail(formData.username)) {
       data = {
@@ -43,19 +45,22 @@ function Login({ setIsAuthenticated, setUser }) {
         password: formData.password,
       };
     }
-    const res = await axios.post("http://localhost:4000/auth/login", data);
-    console.log("Response", res);
-    if (!res) {
-      console.log("Unauthorized");
-      return;
-    }
-    if (res.status === 200) {
-      localStorage.setItem("token", res.data.token);
-      setUser(res.data.user);
-      setIsAuthenticated(true);
-      navigate("/");
-    } else if (res.status === 401) {
-      console.log("Unauthorized");
+
+    try {
+      // Added try-catch for error handling
+      const res = await axios.post("http://localhost:4000/auth/login", data);
+      console.log("Logged in user data:", res.data.user);
+
+      if (res.status === 200) {
+        localStorage.setItem("token", res.data.token);
+        setUser(res.data.user);
+        setIsAuthenticated(true);
+        navigate("/");
+      } else if (res.status === 401) {
+        console.log("Unauthorized");
+      }
+    } catch (err) {
+      console.error("Error during login:", err);
     }
 
     // Clear the form data
@@ -65,7 +70,6 @@ function Login({ setIsAuthenticated, setUser }) {
     });
   };
 
-  // Updates Value after every change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({

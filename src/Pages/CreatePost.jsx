@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-function CreatePost({ userID }) {
+function CreatePost({ userId }) {
   const navigate = useNavigate();
   const [file, setFile] = useState("");
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ function CreatePost({ userID }) {
     dataToSend.append("title", formData.title);
     dataToSend.append("brand", formData.brand);
     dataToSend.append("description", formData.description);
-    dataToSend.append("userId", userID);
+    dataToSend.append("userId", userId);
     dataToSend.append("year", formData.year);
     dataToSend.append("model", formData.model);
     dataToSend.append("kilometers", formData.kilometers);
