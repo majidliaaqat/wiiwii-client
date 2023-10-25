@@ -8,7 +8,8 @@ function Post({ post, user }) {
   const [comment, setComment] = useState("");
   const [allcomments, setAllComments] = useState([]);
   const [refreshComments, setRefreshComments] = useState(false);
-
+  const [edit, setEdit] = useState("");
+  const [editText, setEditText] = useState("");
   useEffect(() => {
     const fetchMessages = async () => {
       try {
@@ -17,14 +18,31 @@ function Post({ post, user }) {
         );
         console.log("Fetched Comments: ", res.data);
         setAllComments(res.data);
+        setRefreshComments(false);
       } catch (error) {
         console.log("Error fetching comments: ", error);
       }
     };
 
     fetchMessages();
-  }, [post._Id, refreshComments]);
-
+  }, []);
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:4000/msg/message/${post._id}`
+        );
+        console.log("Fetched Comments: ", res.data);
+        setAllComments(res.data);
+        setRefreshComments(false);
+      } catch (error) {
+        console.log("Error fetching comments: ", error);
+      }
+    };
+    if (refreshComments) {
+      fetchMessages();
+    }
+  }, [refreshComments]);
   const handleChange = (e) => {
     setComment(e.target.value);
   };
@@ -51,7 +69,7 @@ function Post({ post, user }) {
         });
         console.log("comment = ", res);
         setComment("");
-        setRefreshComments(!refreshComments);
+        setRefreshComments(true);
       } else if (res.status === 400) {
         toast.error("Unable to post message!", {
           position: "top-right",
@@ -68,7 +86,38 @@ function Post({ post, user }) {
       console.log("Error: ", error);
     }
   };
-
+  const handleDelete = async (id) => {
+    try {
+      const res = await axios.delete(`http://localhost:4000/msg/message/${id}`);
+      if (res.status === 200) {
+        console.log("Message Deleted");
+        setRefreshComments(true);
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+  const handleEdit = async (id) => {
+    if (!edit) {
+      setEdit(id);
+    } else {
+      try {
+        const res = await axios.put(`http://localhost:4000/msg/message/${id}`, {
+          text: editText,
+        });
+        if (res.status === 200) {
+          console.log("Comment Updated!");
+          setRefreshComments(true);
+          setEdit("");
+        }
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    }
+  };
+  const handleEditChange = (e) => {
+    setEditText(e.target.value);
+  };
   return (
     <>
       <div>{post.title}</div>
@@ -84,7 +133,24 @@ function Post({ post, user }) {
       />
       <div>{post.description}</div>
       {allcomments.map((comment) => (
-        <div key={comment._id}>{comment.text}</div>
+        <div key={comment._id}>
+          <div>{comment.user.username}</div>
+          <input
+            type="text"
+            name="commentText"
+            onChange={handleEditChange}
+            value={edit === comment._id ? editText : comment.text}
+            disabled={edit !== comment._id ? true : false}
+          />
+          {user._id === comment.user._id && (
+            <>
+              <button onClick={(e) => handleEdit(comment._id)}>
+                {edit === comment._id ? "Update" : "Edit"}
+              </button>
+              <button onClick={(e) => handleDelete(comment._id)}>Delete</button>
+            </>
+          )}
+        </div>
       ))}
       {/* <label htmlFor="commentInput" className="visually-hidden">
         Enter a comment

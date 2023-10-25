@@ -1,4 +1,4 @@
-import "../styles/Header.css";
+// import "../styles/Header.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {
