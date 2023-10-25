@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,7 +17,13 @@ import Post from "./Pages/Post";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setUser(localStorage.getItem("user"));
+      setIsAuthenticated(true);
+    }
+  }, []);
   console.log("Authentication: ", isAuthenticated);
   return (
     <div className="App">
@@ -42,7 +48,7 @@ function App() {
             path="/post"
             element={
               isAuthenticated ? (
-                <CreatePost userId={user._id} />
+                <CreatePost userId={user ? user._id : ""} />
               ) : (
                 <Navigate to="/login" />
               )

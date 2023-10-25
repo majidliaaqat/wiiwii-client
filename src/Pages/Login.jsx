@@ -53,6 +53,8 @@ function Login({ setIsAuthenticated, setUser }) {
 
       if (res.status === 200) {
         localStorage.setItem("token", res.data.token);
+        console.log(res.data.user);
+        localStorage.setItem("user", res.data.user);
         setUser(res.data.user);
         setIsAuthenticated(true);
         navigate("/");

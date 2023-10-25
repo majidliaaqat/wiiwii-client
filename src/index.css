@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: radial-gradient(
+    343px at 46.3% 47.5%,
+    rgb(242, 242, 242) 0%,
+    rgb(241, 241, 241) 72.9%
+  );
+}

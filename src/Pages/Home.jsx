@@ -5,8 +5,9 @@ import "../styles/Home.css";
 import Post from "../Pages/Post";
 
 function Home({ user }) {
+  console.log("User in Home: ", user);
   const [posts, setPosts] = useState("");
-  const [post, setPost] = useState("");
+  const [fullpost, setFullPost] = useState("");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,27 +23,26 @@ function Home({ user }) {
   };
 
   const handleClick = (post) => {
-    console.log(post);
-    setPost(post);
+    setFullPost(post);
   };
 
   return (
     <>
-      {post !== "" ? (
+      {fullpost !== "" ? (
         <>
           <Link to="/post" className="create-post-link">
-            Create Post
+            Add Advertisement
           </Link>
           <button onClick={handleBack} className="back-button">
             Back
           </button>
 
-          <Post post={post} user={user} />
+          <Post post={fullpost} user={user} />
         </>
       ) : (
         <div className="Home">
           <Link to="/post" className="create-post-link">
-            Create Post
+            Add Advertisement
           </Link>
           {posts ? (
             <div className="PostsContainer">
@@ -58,11 +58,11 @@ function Home({ user }) {
                     <div>{post.title}</div>
                     <div className="PostHeader">
                       <img
-                        src={`http://localhost:4000/${post.userProfilePic}`}
+                        src={`http://localhost:4000/${post.user.profilepic}`}
                         alt={`${post.username}'s profile`}
                       />
                       <div>
-                        <h3>{post.username}</h3>
+                        <h3>{post.user.username}</h3>
                       </div>
                     </div>
                     <img

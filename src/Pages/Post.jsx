@@ -4,7 +4,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Post({ post, user }) {
-  console.log(user._id);
   // Added userId prop
   const [comment, setComment] = useState("");
   const [allcomments, setAllComments] = useState([]);
@@ -14,7 +13,7 @@ function Post({ post, user }) {
     const fetchMessages = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4000/msg/fetchmsg/${post._id}`
+          `http://localhost:4000/msg/message/${post._id}`
         );
         console.log("Fetched Comments: ", res.data);
         setAllComments(res.data);
@@ -50,7 +49,7 @@ function Post({ post, user }) {
           autoClose: false,
           progress: false,
         });
-        console.log(res);
+        console.log("çomment = ", res);
         setComment("");
         setRefreshComments(!refreshComments);
       } else if (res.status === 400) {
@@ -73,25 +72,34 @@ function Post({ post, user }) {
   return (
     <>
       <div>{post.title}</div>
-      <img src={`http://localhost:4000/${post.image}`} alt={post.title} />
-      <div>{post.description}</div>
-      <div>Enter a comment:</div>
-      {allcomments.length > 0 &&
-        allcomments.map((comment) => (
-          <div key={comment._id}>
-            {" "}
-            {/* Each child in a list should have a unique key */}
-            <div>{comment.user}</div>
-            <div>{comment.text}</div>
-          </div>
-        ))}
-      <input
-        type="text"
-        placeholder="Enter comment here"
-        value={comment}
-        onChange={handleChange}
+      <img
+        style={{ height: "30px", width: "30px" }}
+        src={`http://localhost:4000/${post.user.profilepic}`}
       />
-      <button onClick={handleClick}>Submit</button>
+      <div>{post.user.username}</div>
+      <img
+        style={{ height: "30px", width: "30px" }}
+        src={`http://localhost:4000/${post.image}`}
+        alt={post.title}
+      />
+      <div>{post.description}</div>
+
+      {/* <label htmlFor="commentInput" className="visually-hidden">
+        Enter a comment
+      </label> */}
+      {user && (
+        <>
+          <input
+            id="commentInput"
+            type="text"
+            placeholder="Enter your comment here..."
+            value={comment}
+            onChange={handleChange}
+          />
+
+          <button onClick={handleClick}>Submit</button>
+        </>
+      )}
       <ToastContainer />
     </>
   );
