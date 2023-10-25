@@ -4,7 +4,9 @@ import axios from "axios";
 import "../styles/Home.css";
 import Post from "../Pages/Post";
 
-function Home({ user }) {
+function Home() {
+  const JSONuser = localStorage.getItem("user");
+  const user = JSON.parse(JSONuser);
   console.log("User in Home: ", user);
   const [posts, setPosts] = useState("");
   const [fullpost, setFullPost] = useState("");
@@ -19,7 +21,7 @@ function Home({ user }) {
   }, []);
 
   const handleBack = () => {
-    setPost("");
+    setFullPost("");
   };
 
   const handleClick = (post) => {

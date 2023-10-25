@@ -4,7 +4,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-function Profile({ user }) {
+function Profile() {
+  const JSONuser = localStorage.getItem("user");
+  const user = JSON.parse(JSONuser);
+  console.log("User Name:", user.firstname);
+  console.log("User in Profile: ", user);
+
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const handleOldChange = (e) => {

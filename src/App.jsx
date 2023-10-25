@@ -16,14 +16,15 @@ import Header from "./components/Header";
 import Post from "./Pages/Post";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("token") ? true : false
+  );
   const [user, setUser] = useState("");
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setUser(localStorage.getItem("user"));
-      setIsAuthenticated(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     setIsAuthenticated(true);
+  //   }
+  // }, []);
   console.log("Authentication: ", isAuthenticated);
   return (
     <div className="App">
@@ -33,7 +34,7 @@ function App() {
       ></Header>
       <main>
         <Routes>
-          <Route path="/" element={<Home user={user} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/login"

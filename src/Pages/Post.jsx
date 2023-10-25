@@ -49,7 +49,7 @@ function Post({ post, user }) {
           autoClose: false,
           progress: false,
         });
-        console.log("çomment = ", res);
+        console.log("comment = ", res);
         setComment("");
         setRefreshComments(!refreshComments);
       } else if (res.status === 400) {
@@ -83,7 +83,9 @@ function Post({ post, user }) {
         alt={post.title}
       />
       <div>{post.description}</div>
-
+      {allcomments.map((comment) => (
+        <div key={comment._id}>{comment.text}</div>
+      ))}
       {/* <label htmlFor="commentInput" className="visually-hidden">
         Enter a comment
       </label> */}
