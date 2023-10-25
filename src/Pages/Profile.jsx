@@ -64,9 +64,25 @@ function Profile() {
       });
     }
   };
+  const handleDeleteAccount = async () => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:4000/auth/delete/${user._id}`
+      );
+      if (res.status === 200) {
+        console.log("User Deleted!");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log("Error :", error);
+    }
+  };
   return (
     <div className="Profile">
       <div className="ProfileHeader">
+        <button onClick={handleDeleteAccount}>Delete Account</button>
         {/* <img src={Image} alt={`${user.firstname}'s Profile`} /> */}
         <img
           src={`http://localhost:4000/${user.profilepic}`}

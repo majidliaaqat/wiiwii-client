@@ -14,6 +14,7 @@ import Profile from "./Pages/Profile";
 import About from "./Pages/About";
 import Header from "./components/Header";
 import Post from "./Pages/Post";
+import ContactUs from "./Pages/ContactUs";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -67,6 +68,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/fullpost" element={<Post />} />
+          <Route path="/contact_us" element={<ContactUs />} />
         </Routes>
       </main>
     </div>
