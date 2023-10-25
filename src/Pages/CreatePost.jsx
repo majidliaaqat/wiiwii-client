@@ -4,7 +4,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-function CreatePost({ userId }) {
+function CreatePost() {
+  const JSONuser = localStorage.getItem("user");
+  const userId = JSON.parse(JSONuser)._id;
   const navigate = useNavigate();
   const [file, setFile] = useState("");
   const [formData, setFormData] = useState({
@@ -36,6 +38,28 @@ function CreatePost({ userId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.brand === "") {
+      toast.error("Brand cannot be empty", {
+        position: "top-right",
+        autoClose: false,
+        progress: false,
+      });
+      return;
+    } else if (formData.model === "") {
+      toast.error("model cannot be empty", {
+        position: "top-right",
+        autoClose: false,
+        progress: false,
+      });
+      return;
+    } else if (!file) {
+      toast.error("Please upload image", {
+        position: "top-right",
+        autoClose: false,
+        progress: false,
+      });
+      return;
+    }
     // Handle form submission, including the selected image (formData.image)
     console.log(formData);
     console.log("File", file);

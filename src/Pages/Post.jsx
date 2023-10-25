@@ -50,6 +50,14 @@ function Post({ post, user }) {
   const handleClick = async () => {
     // console.log("post._id:", post._id);
     console.log("user:", user._id);
+    if (comment === "") {
+      toast.error("comment field cannot be empty", {
+        position: "top-right",
+        autoClose: false,
+        progress: false,
+      });
+      return;
+    }
 
     const data = {
       postId: post._id,
@@ -101,6 +109,14 @@ function Post({ post, user }) {
     if (!edit) {
       setEdit(id);
     } else {
+      if (editText === "") {
+        toast.error("comment field cannot be empty", {
+          position: "top-right",
+          autoClose: false,
+          progress: false,
+        });
+        return;
+      }
       try {
         const res = await axios.put(`http://localhost:4000/msg/message/${id}`, {
           text: editText,
@@ -118,6 +134,19 @@ function Post({ post, user }) {
   const handleEditChange = (e) => {
     setEditText(e.target.value);
   };
+  const handleDeletePost = async (id) => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:4000/post/delete_post/${id}`
+      );
+      if (res.status === 200) {
+        console.log("Post Deleted");
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
   return (
     <>
       <div>{post.title}</div>
@@ -132,6 +161,9 @@ function Post({ post, user }) {
         alt={post.title}
       />
       <div>{post.description}</div>
+      {post.user._id === user._id && (
+        <button onClick={(e) => handleDeletePost(post._id)}>Delete Post</button>
+      )}
       {allcomments.map((comment) => (
         <div key={comment._id}>
           <div>{comment.user.username}</div>

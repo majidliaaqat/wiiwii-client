@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import "../styles/Home.css";
+import "../styles/Home.css";
 import Post from "../Pages/Post";
 
 function Home() {
