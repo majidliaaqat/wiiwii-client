@@ -5,6 +5,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
   const Logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("token");
+    localStorage.removeItem('user');
   };
   return (
     <header className="app-header">

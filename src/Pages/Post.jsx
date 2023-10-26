@@ -177,14 +177,14 @@ function Post({ post, user }) {
         <div className="article-body">Price: {post.price}</div>
         <div className="article-body">Location: {post.location}</div>
 
-        {post.user._id === user._id && (
+        { user?post.user._id === user._id && (
           <button
             className="article-remove-btn"
             onClick={(e) => handleDeletePost(post._id)}
           >
             Delete Post
           </button>
-        )}
+        ):<></>}
 
         <div className="discussions">
           <h1>Comments</h1>
@@ -206,7 +206,7 @@ function Post({ post, user }) {
                 value={edit === comment._id ? editText : comment.text}
                 disabled={edit !== comment._id}
               />
-              {user._id === comment.user._id && (
+              {user?user._id === comment.user._id && (
                 <div className="discussion-actions">
                   <button
                     className="action-edit"
@@ -221,7 +221,7 @@ function Post({ post, user }) {
                     Delete
                   </button>
                 </div>
-              )}
+              ):<></>}
             </div>
           ))}
         </div>
