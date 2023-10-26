@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-// import "../styles/Profile.css";
+import "../styles/Profile.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -80,10 +80,8 @@ function Profile() {
     }
   };
   return (
-    <div className="Profile">
-      <div className="ProfileHeader">
-        <button onClick={handleDeleteAccount}>Delete Account</button>
-        {/* <img src={Image} alt={`${user.firstname}'s Profile`} /> */}
+    <div className="UserWrapper">
+      <div className="UserHeaderArea">
         <img
           src={`http://localhost:4000/${user.profilepic}`}
           alt={`${user.firstname}'s Profile`}
@@ -93,7 +91,7 @@ function Profile() {
         </h2>
         <p>@{user.username}</p>
         <p>Email: {user.email}</p>
-        <div className="update-pass-title">Update Your Password</div>
+        <div className="ChangePassText">Update Your Password</div>
         <input
           type="password"
           placeholder="Old Password"
@@ -109,10 +107,10 @@ function Profile() {
         />
         <br />
         <button onClick={handleSubmit}>Update Password</button>
+        <button onClick={handleDeleteAccount}>Delete Account</button>
       </div>
       <ToastContainer />
     </div>
   );
 }
-
 export default Profile;

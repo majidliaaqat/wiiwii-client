@@ -32,22 +32,22 @@ function Home() {
     <>
       {fullpost !== "" ? (
         <>
-          <Link to="/post" className="create-post-link">
+          <Link to="/post" className="advertisement-link">
             Add Advertisement
           </Link>
-          <button onClick={handleBack} className="back-button">
+          <button onClick={handleBack} className="return-button">
             Back
           </button>
 
           <Post post={fullpost} user={user} />
         </>
       ) : (
-        <div className="Home">
-          <Link to="/post" className="create-post-link">
+        <div className="Homepage">
+          <Link to="/post" className="advertisement-link">
             Add Advertisement
           </Link>
           {posts ? (
-            <div className="PostsContainer">
+            <div className="Advertisements">
               {posts
                 .slice()
                 .reverse()
@@ -55,10 +55,10 @@ function Home() {
                   <div
                     onClick={() => handleClick(post)}
                     key={post._id}
-                    className="Post"
+                    className="Advertisement"
                   >
                     <div>{post.title}</div>
-                    <div className="PostHeader">
+                    <div className="AdvertisementAuthor">
                       <img
                         src={`http://localhost:4000/${post.user.profilepic}`}
                         alt={`${post.username}'s profile`}
@@ -70,9 +70,10 @@ function Home() {
                     <img
                       src={`http://localhost:4000/${post.image}`}
                       alt={post.title}
-                      className="PostImage"
+                      className="AdvertisementImage"
                     />
-                    <p className="PostDescription">{post.description}</p>
+                    <p className="AdvertisementText">{post.description}</p>
+                    <h4>Click Here To View Full Add</h4>
                   </div>
                 ))}
             </div>

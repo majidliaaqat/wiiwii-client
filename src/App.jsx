@@ -21,11 +21,7 @@ function App() {
     localStorage.getItem("token") ? true : false
   );
   const [user, setUser] = useState("");
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     setIsAuthenticated(true);
-  //   }
-  // }, []);
+
   console.log("Authentication: ", isAuthenticated);
   return (
     <div className="App">

@@ -1,4 +1,4 @@
-.register-app-container {
+.signup-app-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,13 +6,7 @@
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.register-app-container .profile-options p {
-  margin: 15px 0;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.register-app-container .main-content {
+.primary-content {
   width: 35%;
   border: 1px solid #ccc;
   margin: 4% 30%;
@@ -26,7 +20,7 @@
   border-radius: 10px;
 }
 
-.register-app-container .register-profile h2 {
+.signup-block h2 {
   color: black;
   background-color: #dc2f2f;
   padding: 30px 30px;
@@ -37,20 +31,24 @@
   font-size: 50px;
 }
 
-.register-app-container .register-profile form {
+.signup-block form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.register-app-container .Name {
+.fullname-group {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.register-app-container .firstname,
-.register-app-container .lastname {
+.fname-field,
+.lname-field,
+.user-field,
+.mail-field,
+.pass-field,
+.conf-pass-field {
   margin: 10px 0;
   padding: 15px;
   border: 2px solid #ccc;
@@ -59,27 +57,12 @@
   font-size: 16px;
 }
 
-.register-app-container .register-profile .input {
+img-upload-field {
   margin: 10px 0;
   padding: 15px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  font-size: 16px;
 }
 
-.register-app-container .checkbox-section {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-}
-
-.register-app-container .checkbox-section label {
-  margin-left: 15px;
-  font-size: 16px;
-}
-
-.register-app-container button {
+.signup-block button {
   padding: 15px 20px;
   background-color: #dc2f2f;
   color: black;
@@ -88,28 +71,27 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-weight: bolder;
-  font-size: 18px;
-  width: 35%;
   font-size: 30px;
+  width: 35%;
 }
 
-.register-app-container button[type="submit"]:hover {
+.signup-block button[type="submit"]:hover {
   background-color: #dc2f2f;
 }
 
 @media only screen and (max-width: 786px) {
-  .register-app-container .main-content {
+  .signup-app-wrap .primary-content {
     width: 55%;
     margin: 0;
     margin-left: 30%;
     border: none;
   }
 
-  .register-app-container .register-profile h2 {
+  .signup-block h2 {
     font-size: 20px;
   }
 
-  .register-app-container .register-profile label {
+  .signup-block label {
     font-size: 18px;
   }
 }

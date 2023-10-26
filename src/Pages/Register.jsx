@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "../styles/Register.css";
+import "../styles/Register.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -59,7 +59,6 @@ function Register() {
 
     console.log("Sent Data Object:", formDataObject);
 
-    // setIsLoading(true);
     fetch("http://localhost:4000/auth/register", {
       method: "POST",
       body: dataToSend,
@@ -73,6 +72,7 @@ function Register() {
             progress: false,
           });
           navigate("/login");
+
           // Clear the form data
           setFormData({
             firstName: "",
@@ -126,21 +126,21 @@ function Register() {
   };
 
   return (
-    <div className="register-app-container">
+    <div className="signup-app-wrap">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;800&family=Raleway:wght@600&display=swap');
       </style>
-      <div className="main-content">
-        <div className="register-profile">
-          <h2>Register Here</h2>
+      <div className="primary-content">
+        <div className="signup-block">
+          <h2>Register Now</h2>
           <form>
-            <div className="Name">
+            <div className="fullname-group">
               <input
                 type="text"
                 placeholder="First Name"
                 name="firstName"
-                className="firstname"
+                className="fname-field"
                 value={formData.firstName}
                 onChange={handleChange}
               />
@@ -148,7 +148,7 @@ function Register() {
                 type="text"
                 placeholder="Last Name"
                 name="lastName"
-                className="lastname"
+                className="lname-field"
                 value={formData.lastName}
                 onChange={handleChange}
               />
@@ -157,7 +157,7 @@ function Register() {
               type="text"
               placeholder="Username"
               name="username"
-              className="input"
+              className="user-field"
               value={formData.username}
               onChange={handleChange}
             />
@@ -165,7 +165,7 @@ function Register() {
               type="email"
               placeholder="Email"
               name="email"
-              className="input"
+              className="mail-field"
               value={formData.email}
               onChange={handleChange}
             />
@@ -173,23 +173,16 @@ function Register() {
               type="password"
               placeholder="Password"
               name="password"
-              className="input-field input"
+              className="pass-field"
               value={formData.password}
               onChange={handleChange}
             />
-            <input
-              type="ConfirmPassword"
-              placeholder="Confirm Password"
-              name="ConfirmPassword"
-              className="input-field input"
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <h4>Upload Profile Picture</h4>
             <input
               type="file"
               accept=".jpg,.jpeg,.png"
               onChange={handleFileChange}
-              className="input-field input"
+              className="img-upload-field"
             />
             <button onClick={handleSubmit} type="submit">
               Register
@@ -201,5 +194,4 @@ function Register() {
     </div>
   );
 }
-
 export default Register;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "../styles/Login.css";
+import "../styles/Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -47,7 +47,6 @@ function Login({ setIsAuthenticated, setUser }) {
     }
 
     try {
-      // Added try-catch for error handling
       const res = await axios.post("http://localhost:4000/auth/login", data);
       console.log("Logged in user data:", res.data.user);
 
@@ -82,20 +81,20 @@ function Login({ setIsAuthenticated, setUser }) {
   };
 
   return (
-    <div className="login-app-container">
+    <div className="auth-container">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;800&family=Raleway:wght@600&display=swap');
       </style>
-      <div className="main-content">
-        <div className="login-form">
-          <h2>Login to your account</h2>
+      <div className="auth-content">
+        <div className="auth-box">
+          <h2>Sign In</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Email"
               name="username"
-              className="input"
+              className="email-input"
               value={formData.username}
               onChange={handleChange}
             />
@@ -103,15 +102,15 @@ function Login({ setIsAuthenticated, setUser }) {
               type="password"
               placeholder="Password"
               name="password"
-              className="input-field input"
+              className="password-input"
               value={formData.password}
               onChange={handleChange}
             />
-            <a href="#" className="forgot-password">
+            <a href="#" className="password-reset-link">
               Forgot Password?
             </a>
-            <button className="login-button" type="submit">
-              LOGIN
+            <button className="submit-btn" type="submit">
+              Login
             </button>
           </form>
         </div>
@@ -120,5 +119,4 @@ function Login({ setIsAuthenticated, setUser }) {
     </div>
   );
 }
-
 export default Login;

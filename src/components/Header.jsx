@@ -1,4 +1,4 @@
-// import "../styles/Header.css";
+import "../styles/Header.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -7,30 +7,39 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
     localStorage.removeItem("token");
   };
   return (
-    <header className="header">
-      <div className="logo">
+    <header className="app-header">
+      <div className="header-logo">
         <img src="/public/LOGO.png" alt="Logo" />
       </div>
-      <nav className="navigation">
-        <Link to="/">Home</Link>
-        <Link to="/cars">Cars</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact_us">Contact Us</Link>
-        {isAuthenticated && <Link to="/profile">Profile</Link>}
+      <nav className="main-nav">
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <Link to="/about" className="nav-link">
+          About
+        </Link>
+        <Link to="/contact_us" className="nav-link">
+          Contact Us
+        </Link>
+        {isAuthenticated && (
+          <Link to="/profile" className="nav-link">
+            Profile
+          </Link>
+        )}
       </nav>
-      <div className="auth-buttons">
+      <div className="auth-section">
         {!isAuthenticated && (
           <>
-            <Link to="/login" className="login-btn">
+            <Link to="/login" className="auth-link auth-login">
               Login
             </Link>
-            <Link to="/register" className="register-btn">
+            <Link to="/register" className="auth-link auth-register">
               Register
             </Link>
           </>
         )}
         {isAuthenticated && (
-          <button onClick={Logout} className="Logout-btn">
+          <button onClick={Logout} className="auth-button auth-logout">
             Logout
           </button>
         )}

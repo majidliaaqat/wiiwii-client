@@ -1,13 +1,12 @@
-.auth-container {
+.post-creator-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "League Spartan", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: league, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.auth-content {
+.post-creator {
   width: 35%;
   border: 1px solid #ccc;
   margin: 4% 30%;
@@ -21,7 +20,7 @@
   border-radius: 10px;
 }
 
-.auth-box h2 {
+.post-creator h2 {
   color: black;
   background-color: #dc2f2f;
   padding: 30px 30px;
@@ -32,14 +31,13 @@
   font-size: 50px;
 }
 
-.auth-box form {
+.post-creator form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.email-input,
-.password-input {
+.post-field {
   margin: 10px 0;
   padding: 15px;
   border: 2px solid #ccc;
@@ -48,14 +46,12 @@
   font-size: 16px;
 }
 
-.password-reset-link {
-  display: block;
-  text-align: right;
-  margin: 10px 0 20px;
-  font-size: 26px;
+.img-upload-field {
+  margin: 10px 0;
+  padding: 15px;
 }
 
-.submit-btn {
+.post-creator button {
   padding: 15px 20px;
   background-color: #dc2f2f;
   color: black;
@@ -64,23 +60,23 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 30px;
   width: 35%;
 }
 
-.submit-btn:hover {
-  background-color: #c12727;
+.post-creator button[type="submit"]:hover {
+  background-color: #c12828;
 }
 
 @media only screen and (max-width: 786px) {
-  .auth-content {
+  .post-creator-wrapper .post-creator {
     width: 55%;
     margin: 0;
     margin-left: 30%;
     border: none;
   }
 
-  .auth-box h2 {
+  .post-creator h2 {
     font-size: 20px;
   }
 }

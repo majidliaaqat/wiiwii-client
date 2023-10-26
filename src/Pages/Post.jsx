@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/Post.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -48,7 +49,6 @@ function Post({ post, user }) {
   };
 
   const handleClick = async () => {
-    // console.log("post._id:", post._id);
     console.log("user:", user._id);
     if (comment === "") {
       toast.error("comment field cannot be empty", {
@@ -149,58 +149,93 @@ function Post({ post, user }) {
   };
   return (
     <>
-      <div>{post.title}</div>
-      <img
-        style={{ height: "30px", width: "30px" }}
-        src={`http://localhost:4000/${post.user.profilepic}`}
-      />
-      <div>{post.user.username}</div>
-      <img
-        style={{ height: "30px", width: "30px" }}
-        src={`http://localhost:4000/${post.image}`}
-        alt={post.title}
-      />
-      <div>{post.description}</div>
-      {post.user._id === user._id && (
-        <button onClick={(e) => handleDeletePost(post._id)}>Delete Post</button>
-      )}
-      {allcomments.map((comment) => (
-        <div key={comment._id}>
-          <div>{comment.user.username}</div>
-          <input
-            type="text"
-            name="commentText"
-            onChange={handleEditChange}
-            value={edit === comment._id ? editText : comment.text}
-            disabled={edit !== comment._id ? true : false}
-          />
-          {user._id === comment.user._id && (
-            <>
-              <button onClick={(e) => handleEdit(comment._id)}>
-                {edit === comment._id ? "Update" : "Edit"}
-              </button>
-              <button onClick={(e) => handleDelete(comment._id)}>Delete</button>
-            </>
-          )}
-        </div>
-      ))}
-      {/* <label htmlFor="commentInput" className="visually-hidden">
-        Enter a comment
-      </label> */}
-      {user && (
-        <>
-          <input
-            id="commentInput"
-            type="text"
-            placeholder="Enter your comment here..."
-            value={comment}
-            onChange={handleChange}
-          />
+      <div className="article-wrapper">
+        <div className="article-header">{post.title}</div>
 
-          <button onClick={handleClick}>Submit</button>
-        </>
-      )}
-      <ToastContainer />
+        <div className="author-details">
+          <img
+            className="author-avatar"
+            src={`http://localhost:4000/${post.user.profilepic}`}
+            alt="Author Avatar"
+          />
+          <div className="author-nickname">{post.user.username}</div>
+        </div>
+
+        <img
+          className="article-graphic"
+          src={`http://localhost:4000/${post.image}`}
+          alt={post.title}
+        />
+        <div className="article-body">Description: {post.description}</div>
+        <div className="article-body">Brand: {post.brand}</div>
+        <div className="article-body">Year: {post.year}</div>
+        <div className="article-body">Model: {post.model}</div>
+        <div className="article-body">Kilometers: {post.kilometers}</div>
+        <div className="article-body">
+          Transmition Type: {post.transmitionType}
+        </div>
+        <div className="article-body">Price: {post.price}</div>
+        <div className="article-body">Location: {post.location}</div>
+
+        {post.user._id === user._id && (
+          <button
+            className="article-remove-btn"
+            onClick={(e) => handleDeletePost(post._id)}
+          >
+            Delete Post
+          </button>
+        )}
+
+        <div className="discussions">
+          {allcomments.map((comment) => (
+            <div key={comment._id} className="discussion-entry">
+              <div className="discussant">{comment.user.username}</div>
+              <input
+                className="discussion-input"
+                type="text"
+                name="commentText"
+                onChange={handleEditChange}
+                value={edit === comment._id ? editText : comment.text}
+                disabled={edit !== comment._id}
+              />
+              {user._id === comment.user._id && (
+                <div className="discussion-actions">
+                  <button
+                    className="action-edit"
+                    onClick={(e) => handleEdit(comment._id)}
+                  >
+                    {edit === comment._id ? "Update" : "Edit"}
+                  </button>
+                  <button
+                    className="action-trash"
+                    onClick={(e) => handleDelete(comment._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {user && (
+          <div className="comment-form">
+            <input
+              id="newComment"
+              className="comment-field"
+              type="text"
+              placeholder="Add your comment..."
+              value={comment}
+              onChange={handleChange}
+            />
+            <button className="comment-submit" onClick={handleClick}>
+              Submit
+            </button>
+          </div>
+        )}
+
+        <ToastContainer />
+      </div>
     </>
   );
 }

@@ -1,4 +1,4 @@
-.Home {
+.Homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,14 +9,14 @@
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.PostsContainer {
+.Advertisements {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
 }
 
-.Post {
+.Advertisement {
   flex: 0 0 calc(33.333% - 40px);
   display: flex;
   flex-direction: column;
@@ -28,17 +28,17 @@
   cursor: pointer;
 }
 
-.Post:hover {
+.Advertisement:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.PostHeader {
+.AdvertisementAuthor {
   display: flex;
   align-items: center;
   margin-top: 10px;
 }
 
-.PostHeader img {
+.AdvertisementAuthor img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -46,13 +46,13 @@
   margin-right: 10px;
 }
 
-.PostHeader h3 {
+.AdvertisementAuthor h3 {
   font-size: 18px;
   color: #333;
   margin: 0;
 }
 
-.PostImage {
+.AdvertisementImage {
   width: 250px;
   height: 150px;
   border-radius: 5px;
@@ -60,64 +60,43 @@
   object-fit: cover;
 }
 
-.PostDescription {
+.AdvertisementText {
   color: black;
   font-size: 16px;
   line-height: 1.5;
 }
 
-a {
+.advertisement-link {
   display: inline-block;
   padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-a:hover {
-  background-color: #c12828;
-}
-
-/* button {
-  padding: 10px 20px;
   background-color: #dc2f2f;
   color: white;
-  border: none;
-  border-radius: 5px;
-  margin: 10px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #c12828;
-}
-
-.create-post-link {
-  padding: 10px 20px;
-  background-color: #dc2f2f;
-  color: white;
-  border: none;
   border-radius: 5px;
   margin: 10px 0;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s ease;
   width: 500px;
   text-align: center;
   font-weight: bolder;
   font-size: xx-large;
+  transition: background-color 0.3s ease;
 }
 
-.create-post-link:hover,
-button:hover {
+.advertisement-link:hover {
   background-color: #c12828;
 }
 
-.back-button {
-  margin-left: 550px;
-  width: 100px;
-} */
+.return-button {
+  margin-left: 800px;
+  padding: 10px 20px;
+  background-color: #dc2f2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.return-button:hover {
+  background-color: #c12828;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "../styles/Post.css";
+import "../styles/CreatePost.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -98,7 +98,6 @@ function CreatePost() {
             autoClose: false,
             progress: false,
           });
-          // navigate("/");
           // Clear the form data
           setFormData({
             title: "",
@@ -138,11 +137,12 @@ function CreatePost() {
   };
 
   return (
-    <div className="create-post-container">
-      <div className="create-post">
+    <div className="post-creator-wrapper">
+      <div className="post-creator">
         <h2>Post New Add</h2>
         <form onSubmit={handleSubmit}>
           <input
+            className="post-field"
             type="text"
             name="title"
             placeholder="Title"
@@ -151,61 +151,78 @@ function CreatePost() {
           />
 
           <input
+            className="post-field"
             type="text"
             name="brand"
             placeholder="Brand"
             value={formData.brand}
             onChange={handleChange}
           />
+
           <input
+            className="post-field"
             type="text"
             name="year"
             placeholder="Year"
             value={formData.year}
             onChange={handleChange}
           />
+
           <input
+            className="post-field"
             type="text"
             name="model"
             placeholder="Model"
             value={formData.model}
             onChange={handleChange}
           />
+
           <input
+            className="post-field"
             type="text"
             name="kilometers"
             placeholder="Kilometers"
             value={formData.kilometers}
             onChange={handleChange}
           />
+
           <input
+            className="post-field"
             type="text"
             name="transmitionType"
             placeholder="Transmission Type"
             value={formData.transmitionType}
             onChange={handleChange}
           />
+
           <input
+            className="post-field"
             type="text"
             name="price"
             placeholder="Price"
             value={formData.price}
             onChange={handleChange}
           />
+
           <input
+            className="post-field"
             type="text"
             name="location"
             placeholder="Location"
             value={formData.location}
             onChange={handleChange}
           />
+
           <input
+            className="img-upload-field"
             type="file"
             name="image"
             accept="image/*"
             onChange={handleImageChange}
           />
+
           <textarea
+            className="post-field"
             name="description"
             placeholder="Description"
             value={formData.description}
