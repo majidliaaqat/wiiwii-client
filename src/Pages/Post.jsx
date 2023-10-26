@@ -187,9 +187,17 @@ function Post({ post, user }) {
         )}
 
         <div className="discussions">
+          <h1>Comments</h1>
           {allcomments.map((comment) => (
             <div key={comment._id} className="discussion-entry">
-              <div className="discussant">{comment.user.username}</div>
+              <div className="discussant">
+                <img
+                  className="author-avatar"
+                  src={`http://localhost:4000/${post.user.profilepic}`}
+                  alt="Author Avatar"
+                />
+                {comment.user.username}
+              </div>
               <input
                 className="discussion-input"
                 type="text"
