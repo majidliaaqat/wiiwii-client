@@ -42,7 +42,7 @@ This MERN web app offers a seamless platform for users to manage profiles, creat
   - MongoDB
 - **Links**:
   - [GitHub](https://github.com/majidliaaqat)
-  - [Back-end](https://github.com/majidliaaqat/wiiwii-server/)
+  - [Front-end](https://github.com/majidliaaqat/wiiwii-client/)
 
 ## 🖼 Visual Overview
 
@@ -53,8 +53,9 @@ This MERN web app offers a seamless platform for users to manage profiles, creat
 ### Wireframe for the Front-end:
 
 ![Main View](./Public/Main.png)
+![Login](./Public/LOGIN.png)
 ![User Profile View](./Public/User%20Profile.png)
-![Car Listings View](./Public/Car%20Listings.png)
+![Register](./Public/REGISTER%20.png)
 
 ### Entity Relationship Diagram (ERD) for the Back-end:
 
