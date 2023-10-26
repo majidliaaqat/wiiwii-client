@@ -88,7 +88,7 @@ function Login({ setIsAuthenticated, setUser }) {
       </style>
       <div className="auth-content">
         <div className="auth-box">
-          <h2>Sign In</h2>
+          <h2>Login In</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
