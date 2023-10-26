@@ -6,9 +6,17 @@ WiiWii is your go-to platform for buying, selling, and exploring a wide range of
 
 ## 🛠 Features
 
-- **User Registration**: Sign up and get started in minutes.
-- **Car Listings**: Explore list
-- **Comment**: Directly communicate with buyers or sellers seamlessly.
+- **User Registration:Users can easily register, log in, update their passwords, and even delete their account if needed.**
+- **Profile Management: Personalize your profile with the option to upload a profile picture.**
+- **User Login**
+- **User Update Password**
+- **User Delete Account**:
+- **User Upload Profile Picture**
+- **Create Post**
+- **Delete Post**
+- **Comment**
+- **Update Comment**
+- **Delete Comment**
 
 ## 🙋‍♂️ Author Information
 
@@ -18,7 +26,7 @@ WiiWii is your go-to platform for buying, selling, and exploring a wide range of
 
 ## 📜 Project Description
 
-At WiiWii, we prioritize user experience. With a sleek, responsive design and intuitive features, our platform ensures hassle-free trading of cars. Dive into a rich repository of vehicles, ranging from classic antiques to the latest models.
+This MERN web app offers a seamless platform for users to manage profiles, create posts, and engage in discussions, all backed by secure authentication and a robust database.
 
 ## ⚙️ Technologies & Tools
 
@@ -32,9 +40,9 @@ At WiiWii, we prioritize user experience. With a sleek, responsive design and in
   - Mongoose
 - **Database**:
   - MongoDB
-- **Deployment**:
-  - Back-end hosted on [Render.com](https://render.com)
-  - Front-end deployed via [Surge](https://surge.sh).
+- **Links**:
+  - [GitHub](https://github.com/majidliaaqat)
+  - [Back-end](https://github.com/majidliaaqat/wiiwii-server/)
 
 ## 🖼 Visual Overview
 
@@ -55,6 +63,16 @@ At WiiWii, we prioritize user experience. With a sleek, responsive design and in
 ### Component Hierarchy Diagram for the Front-end:
 
 ![Component Hierarchy](./Public/Component%20Hierarchy%20Diagram.png)
+
+## Future Updates:
+
+- Vehicle Verification
+- Advanced Search Filters
+- User Ratings & Reviews
+- Chat System: Enable real-time messaging between buyers and sellers for direct communication.
+- Alerts & Notifications
+- Continuous Bug Fixes
+- Enhanced User Experience
 
 ## 📌 Project Management
 
