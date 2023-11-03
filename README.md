@@ -26,7 +26,7 @@ WiiWii is your go-to platform for buying, selling, and exploring a wide range of
 
 ## 📜 Project Description
 
-This MERN web app offers a seamless platform for users to manage profiles, create posts, and engage in discussions, all backed by secure authentication and a robust database.
+This MERN web app offers a seamless platform for users to manage profiles, create posts, and engage in discussions, all backed by secure authentication and a robust database .
 
 ## ⚙️ Technologies & Tools
 
